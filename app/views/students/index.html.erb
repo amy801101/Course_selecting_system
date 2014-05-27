@@ -1,0 +1,17 @@
+
+<h4><%= link_to 'New Student', new_student_path %></h4>
+<table>
+	<tr>
+		<th>Student ID</th>
+		<th>Name</th>
+	</tr>
+	<% @students.each do |s| %>
+		<tr>
+			<td><%= s.studentId %></td>
+			<td><%= s.name %></td>
+			<td><%= link_to 'Show Detail', student_path(s) %></td>
+			<td><%= link_to 'Edit', edit_student_path(s) %></td>
+			<td><%= link_to 'Delete', student_path(s), method: :delete, data: {confirm: 'Are you sure?'}%></td>
+		</tr>
+	<% end %>
+</table>

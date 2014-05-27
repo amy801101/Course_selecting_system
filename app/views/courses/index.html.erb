@@ -1,0 +1,24 @@
+<h1>Courses lists</h1>
+
+<h4><%= link_to 'New Course', new_course_path %></h4>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Day</th>
+		<th>Time</th>
+		<th>Total</th>
+		<th>Note</th>
+	</tr>
+	<% @course.each do |c| %>
+		<tr>
+			<td><%= c.course_id %></td>
+			<td><%= c.name %></td>
+			<td><%= c.day %></td>
+			<td><%= c.time %></td>
+			<td><%= c.total_student %></td>
+			<td><%= c.note %></td>
+			<td><%= link_to 'Delete', course_path(c), method: :delete, data: {confirm: 'Are you sure?'}%></td>
+		</tr>
+	<% end %>
+</table>
